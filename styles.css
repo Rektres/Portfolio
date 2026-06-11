@@ -1,0 +1,112 @@
+/* ── Cursor parpadeante en hero ── */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #00D26A;
+    margin-left: 2px;
+}
+
+/* ── Reveal on scroll (estado inicial) ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Timeline connector ── */
+.timeline-line {
+    position: absolute;
+    left: 11px;
+    top: 24px;
+    bottom: 0;
+    width: 2px;
+    background: #00D26A;
+    opacity: 0.3;
+}
+
+/* ── Grid de puntos hero ── */
+.dot-grid {
+    background-image: radial-gradient(circle, rgba(48, 54, 61, 0.5) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+.dark .dot-grid {
+    background-image: radial-gradient(circle, rgba(48, 54, 61, 1) 1px, transparent 1px);
+}
+
+/* ── Scrollbar personalizado (webkit) ── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFFFFF;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0D1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00D26A;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00D26A;
+    opacity: 0.8;
+}
+
+/* ── Navbar border animation ── */
+nav {
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+nav.scrolled {
+    border-bottom-color: rgba(48, 54, 61, 0.5);
+}
+
+.dark nav.scrolled {
+    border-bottom-color: rgba(48, 54, 61, 1);
+}
+
+/* ── Focus visible styles ── */
+*:focus-visible {
+    outline: 2px solid #00D26A;
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #00D26A;
+    outline-offset: 2px;
+}
+
+/* ── Mobile menu animations ── */
+#mobile-menu {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu.open {
+    transform: translateX(0);
+}
+
+#mobile-menu-backdrop {
+    transition: opacity 0.3s ease;
+}
+
+#mobile-menu-backdrop.open {
+    display: block;
+    opacity: 1;
+}
