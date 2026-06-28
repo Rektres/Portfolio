@@ -135,8 +135,8 @@ contactForm.addEventListener('submit', async (e) => {
         return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email) || email.split('@')[0].length === 0 || email.split('@')[1].split('.').some(p => p.length === 0)) {
         showMessage('Por favor ingresa un email válido.', false);
         return;
     }
