@@ -117,10 +117,13 @@ mobileMenuLinks.forEach(link => {
 });
 
 // ─── 6. CONTACT FORM ────────────────────────────────────────────────
+const CONTACT_API_URL = 'https://portfolio-api-production-3b8f.up.railway.app/api/contact';
+
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
+const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('name').value.trim();
@@ -128,26 +131,44 @@ contactForm.addEventListener('submit', (e) => {
     const message = document.getElementById('message').value.trim();
 
     if (!name || !email || !message) {
-        formMessage.textContent = 'Por favor completa todos los campos.';
-        formMessage.classList.remove('hidden');
+        showMessage('Por favor completa todos los campos.', false);
         return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        formMessage.textContent = 'Por favor ingresa un email válido.';
-        formMessage.classList.remove('hidden');
+    const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email) || email.split('@')[0].length === 0 || email.split('@')[1].split('.').some(p => p.length === 0)) {
+        showMessage('Por favor ingresa un email válido.', false);
         return;
     }
 
-    formMessage.textContent = '¡Mensaje recibido! Te responderé pronto.';
-    formMessage.classList.remove('hidden');
-    contactForm.reset();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
 
-    setTimeout(() => {
-        formMessage.classList.add('hidden');
-    }, 3000);
+    try {
+        const res = await fetch(CONTACT_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message }),
+        });
+
+        if (!res.ok) throw new Error('Error del servidor');
+
+        showMessage('¡Mensaje enviado! Te responderé pronto.', true);
+        contactForm.reset();
+    } catch {
+        showMessage('Error al enviar. Intenta nuevamente.', false);
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
+    }
 });
+
+function showMessage(text, success) {
+    formMessage.textContent = text;
+    formMessage.style.color = success ? '#00D26A' : '#ef4444';
+    formMessage.classList.remove('hidden');
+    setTimeout(() => formMessage.classList.add('hidden'), 4000);
+}
 
 // ─── 7. SMOOTH SCROLL ───────────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
