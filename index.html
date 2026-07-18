@@ -113,7 +113,10 @@
     <!-- Hero Section -->
     <section id="inicio" class="min-h-screen flex items-center justify-center pt-20 pb-16 px-4 relative dot-grid bg-white dark:bg-surface-primary overflow-hidden">
         <div class="max-w-4xl mx-auto w-full">
-            <div class="text-center lg:text-left">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+              <img src="assets/FotoPerfil.jpeg" alt="Foto de Mateo Araneda Medina"
+                   class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-accent shadow-lg shrink-0" />
+              <div class="text-center lg:text-left">
                 <p class="text-gray-600 dark:text-gray-400 text-lg mb-2">Hola, soy</p>
                 <h1 class="text-5xl md:text-7xl font-bold font-sans text-gray-900 dark:text-gray-100 mb-4 cursor">
                     Mateo Araneda Medina
@@ -140,6 +143,7 @@
                         </svg>
                     </a>
                 </div>
+              </div>
             </div>
         </div>
 
@@ -194,7 +198,7 @@
                 <span class="inline-block w-12 h-1 bg-accent ml-4"></span>
             </h2>
 
-            <div class="relative pl-8">
+            <div class="relative pl-12">
                 <!-- Timeline line -->
                 <div class="timeline-line"></div>
 
@@ -275,17 +279,23 @@
 
                 <!-- Project Card 2 -->
                 <div class="group bg-white dark:bg-surface-tertiary border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-accent transition-all duration-200 hover:-translate-y-1 reveal">
-                    <h3 class="text-lg font-bold font-sans text-gray-900 dark:text-gray-100 mb-3">Dashboard de Análisis de Flota</h3>
-                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">Pipeline de datos que consolida información de múltiples fuentes, transforma los registros y genera reportes visuales interactivos para el equipo.</p>
+                    <h3 class="text-lg font-bold font-sans text-gray-900 dark:text-gray-100 mb-3">NebuApp — Rutinas del Bebé</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">App web para que padres registren y sigan las rutinas del bebé (tomas de leche, vitaminas, cambios de pañal y sueño) con estadísticas de 7 días. Dos padres comparten un perfil mediante un código único; autenticación y sincronización en tiempo real con Supabase.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">Python</span>
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">Pandas</span>
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">NumPy</span>
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">Power BI</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">JavaScript</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">Supabase</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">PostgreSQL</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">HTML/CSS</span>
                     </div>
                     <div class="flex gap-3">
-                        <a href="#" class="inline-flex items-center gap-2 text-accent hover:text-accent-dark transition text-sm font-semibold" aria-label="Ver código en GitHub">
+                        <a href="https://github.com/Rektres/NebuAppWeb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-accent hover:text-accent-dark transition text-sm font-semibold" aria-label="Ver código en GitHub">
                             GitHub
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                        <a href="https://rektres.github.io/NebuAppWeb/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-accent hover:text-accent-dark transition text-sm font-semibold" aria-label="Ver demostración">
+                            Demo
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
@@ -295,16 +305,16 @@
 
                 <!-- Project Card 3 -->
                 <div class="group bg-white dark:bg-surface-tertiary border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-accent transition-all duration-200 hover:-translate-y-1 reveal">
-                    <h3 class="text-lg font-bold font-sans text-gray-900 dark:text-gray-100 mb-3">API de Integración ERP</h3>
-                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">API REST desarrollada para sincronizar datos entre el sistema interno y plataformas externas, con manejo de errores, logging y reintentos.</p>
+                    <h3 class="text-lg font-bold font-sans text-gray-900 dark:text-gray-100 mb-3">RC Estampa — E-commerce de Estampados</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">Plataforma e-commerce para ropa y artículos estampados: catálogo con filtros, carrito y checkout, cotización de pedidos personalizados y editor de diseño sobre canvas (fabric.js). Frontend React/TypeScript desacoplado de una API Django, ambos en Docker.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">NET</span>
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">C#</span>
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">SQL Server</span>
-                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">JWT</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">React</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">TypeScript</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">Django</span>
+                        <span class="px-2 py-1 bg-accent-dim text-accent font-mono text-xs rounded">PostgreSQL</span>
                     </div>
                     <div class="flex gap-3">
-                        <a href="#" class="inline-flex items-center gap-2 text-accent hover:text-accent-dark transition text-sm font-semibold" aria-label="Ver código en GitHub">
+                        <a href="https://github.com/Rektres/RC-Estampa/tree/React-Django-migration" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-accent hover:text-accent-dark transition text-sm font-semibold" aria-label="Ver código en GitHub">
                             GitHub
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
