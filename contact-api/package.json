@@ -1,0 +1,15 @@
+{
+  "name": "contact-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API que recibe el formulario de contacto del portfolio y guarda cada mensaje como .txt",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0"
+  }
+}
