@@ -117,7 +117,7 @@ mobileMenuLinks.forEach(link => {
 });
 
 // ─── 6. CONTACT FORM ────────────────────────────────────────────────
-const CONTACT_API_URL = 'https://portfolio-api-production-3b8f.up.railway.app/api/contact';
+const CONTACT_API_URL = 'https://rektressserver.tailda85b3.ts.net/api/contact';
 
 const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');

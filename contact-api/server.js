@@ -22,7 +22,7 @@ const contactLimiter = rateLimit({
     legacyHeaders: false,
 });
 
-app.post('/api/contact', contactLimiter, async (req, res) => {
+app.post(['/', '/api/contact'], contactLimiter, async (req, res) => {
     const { name, email, message } = req.body ?? {};
 
     if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
