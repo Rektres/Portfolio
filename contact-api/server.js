@@ -45,7 +45,10 @@ app.post(['/', '/api/contact'], contactLimiter, async (req, res) => {
         return res.status(400).json({ error: 'Por favor ingresa un email válido.' });
     }
 
-    const fileName = `${Date.now()}-${crypto.randomBytes(4).toString('hex')}.txt`;
+    const now = new Date();
+    const dateStr = now.toISOString().slice(0, 19).replace(/:/g, '-');
+    const sanitizedName = trimmedName.replace(/[^a-zA-Z0-9_\-]/g, '_').slice(0, 50);
+    const fileName = `${sanitizedName}_${dateStr}.txt`;
     const filePath = path.join(MESSAGES_DIR, fileName);
     const content = `Fecha: ${new Date().toISOString()}\nNombre: ${trimmedName}\nEmail: ${trimmedEmail}\nMensaje:\n${trimmedMessage}\n`;
 
