@@ -12,6 +12,7 @@ const MESSAGES_DIR = process.env.MESSAGES_DIR || path.join(__dirname, 'messages'
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(cors({ origin: ALLOWED_ORIGIN }));
 app.use(express.json({ limit: '10kb' }));
 
